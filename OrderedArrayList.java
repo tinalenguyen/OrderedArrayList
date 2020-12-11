@@ -20,10 +20,20 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       }
       return ind-1;
     }
+
     public void add(int index, T element){
 //find element where it should be inserted and add the element there
-  
+      int ind = sorting(element);
+      super.add(ind, element);
 
+    }
+
+    public boolean add(T element){
+//override add
+      int ind = sorting(element);
+      super.add(ind, element);
+      return true;
+    
     }
 
 }
