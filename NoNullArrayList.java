@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.IllegalArgumentException;
 public class NoNullArrayList<T> extends ArrayList<T>{
 //override set and both add methods
 //add two constructors
@@ -16,8 +17,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
     public boolean add(T element){
 //overrides add; appends to end of the list
       if (element==null) throw new IllegalArgumentException("The element is null");
-      super.add(element);
-      return true;
+      return super.add(element);
     }
 
     public void add(int index, T element){
@@ -29,9 +29,9 @@ public class NoNullArrayList<T> extends ArrayList<T>{
     public T set(int index, T element){
 //override set
       if (element==null) throw new IllegalArgumentException("The element is null");
-      T value = get(index);
-      super.set(index, element);
-      return value;
+       
+      return super.set(index, element);
+
 
     }
 }
