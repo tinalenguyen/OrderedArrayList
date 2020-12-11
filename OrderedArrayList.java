@@ -11,5 +11,19 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       super(startingCapacity);
     }
 
+    public int sorting(T element){
+//sorting method?
+      int ind = 0 ;
+      for (ind=0 ; ind < size(); ){
+        if ( element.compareTo(get(ind)) >0) ind++;
+
+      }
+      return ind-1;
+    }
+    public void add(int index, T element){
+//find element where it should be inserted and add the element there
+  
+
+    }
 
 }
