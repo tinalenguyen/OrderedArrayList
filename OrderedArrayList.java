@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T> {
 
     public OrderedArrayList(){
@@ -11,36 +11,36 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       super(startingCapacity);
     }
 
-    public int sorting(T element){
-//sorting method?
-      int ind = 0 ;
-      for (ind=0 ; ind < size(); ){
-        if ( element.compareTo(get(ind)) >0) ind++;
 
-      }
-      return ind-1;
-    }
 
     public void add(int index, T element){
 //find element where it should be inserted and add the element there
-      int ind = sorting(element);
-      super.add(ind, element);
 
+      add(element);
+  
     }
 
     public boolean add(T element){
 //override add
-      int ind = sorting(element);
-      super.add(ind, element);
-      return true;
-
+      if (element==null) throw new IllegalArgumentException();
+      for (int i = 0 ; i < size(); ){
+        if (element.compareTo(get(i)) < 0 ) {
+          super.add(i, element);
+          i = size() + 10;
+          return true;
+        }
+        else i++;
+      }
+      return (super.add(element));
     }
 
     public T set(int index, T value){
 //removes element at index and adds new values
-      T removed = super.remove(index);
-      int ind = sorting(value);
-      super.add(ind, value);
+      T removed = value;
+      if (index < size()){
+        removed = remove(index);
+      }
+      add(value);
       return removed;
 
 
