@@ -14,15 +14,14 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
 
     public void add(int index, T element){
-//find element where it should be inserted and add the element there
+//same as other add
 
       add(element);
-  
+
     }
 
     public boolean add(T element){
 //override add
-      if (element==null) throw new IllegalArgumentException();
       for (int i = 0 ; i < size(); ){
         if (element.compareTo(get(i)) < 0 ) {
           super.add(i, element);
