@@ -29,7 +29,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
     public T set(int index, T element){
 //override set
       if (element==null) throw new IllegalArgumentException("The element is null");
-       
+
       return super.set(index, element);
 
 
