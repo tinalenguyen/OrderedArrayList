@@ -22,6 +22,9 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
     public boolean add(T element){
 //override add
+      if (element ==null){
+        super.add(element);
+      }
       for (int i = 0 ; i < size(); ){
         if (element.compareTo(get(i)) < 0 ) {
           super.add(i, element);
